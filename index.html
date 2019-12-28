@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Code Quiz</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <p id="timer"></p>
+            </div>
+        </div>
+        
+
+        <div class="container-fluid" id="main-div">
+            <p id="questionText">Code Quiz</p>
+                <button id="startButton">begin quiz</button>
+                <form id="scoreForm" class="hide">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Enter Initials</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                  </div>
+                  <ul>
+                      <li></li>
+                  </ul>
+                </form>
+                <div class="hide" id="buttonContainer">
+                    <button class="buttons" id="button1">Answer 1</button>
+                    <button class="buttons" id="button2">Answer 2</button>
+                    <button class="buttons" id="button3">Answer 3</button>
+                    <button class="buttons" id="button4">Answer 4</button>
+                </div>
+            <br>
+        </div>
+
+        <p id="score"></p>
+       
+        
+    <script src="assets/javascript/script.js" async defer></script>
+    </body>
+</html>

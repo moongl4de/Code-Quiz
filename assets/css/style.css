@@ -1,0 +1,105 @@
+html {
+    background-image: url("https://media3.giphy.com/media/pHZ8BBgLaXPliFNudh/source.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#timer {
+    float: right;
+    font-size: 20px;
+}
+
+#main-div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.774);
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed cover;
+    background-position: center;
+    width: 50%;
+    height: 300px;
+    border-radius: 25px;
+    padding: 20px;
+    display: block;
+    box-shadow: 0px 0px 10px rgb(133, 133, 133);
+}
+
+#questionText {
+    text-align: center;
+    font-size: 1.8rem;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.308);
+    letter-spacing: 8px;
+    line-height: 40px;
+}
+
+.buttons {
+    width: 70%;
+    height: 15%;
+    margin: 0 auto 10px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    letter-spacing: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-top: -50px;
+}
+
+.buttons:hover {
+    border: 2px solid rgba(0, 0, 0, 0.336);
+    background-color: rgba(216, 216, 216, 0.301);
+    font-weight: bold;
+    letter-spacing: 8px;
+    transition: .4s;
+    background-image: url("https://media3.giphy.com/media/xUOwGcu6wd0cXBj5n2/giphy.gif");
+    background-position: center;
+    
+}
+
+#buttonContainer {
+    
+    height: 70%;
+}
+
+#startButton {
+   
+    width: 40%;
+    height: 40%;
+    border: 1px solid black;
+    border-radius: 25px;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 4% auto 0 auto;
+    outline: none;
+}
+
+#startButton:hover {
+    background-color: rgba(0, 0, 0, 0.514);
+    letter-spacing: 15px;
+    transition: 1.5s;
+    color: white;
+    text-shadow: 0px 0px 5px black;
+    width: 55%;
+    background-image: url("https://media3.giphy.com/media/xUOwGcu6wd0cXBj5n2/giphy.gif");
+    background-position: center;
+    opacity: .3;
+    
+}
+
+.hide {
+    display: none !important;
+}
+
+#score {
+    font-size: 25px;
+}
+
