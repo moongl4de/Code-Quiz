@@ -1,5 +1,5 @@
 html {
-    background-image: url("https://media3.giphy.com/media/pHZ8BBgLaXPliFNudh/source.gif");
+    background-image: url("https://i.pinimg.com/originals/b8/42/73/b84273935ccb49148fa54da57d6234e4.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -7,11 +7,30 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: rgba(255, 255, 255, 0);
+    
+}
+
+#score {
+    font-size: 22px;
+    margin: 10% auto;
+    text-align: center;
+    color: white;
+    letter-spacing: 10px;
+    
 }
 
 #timer {
-    float: right;
-    font-size: 20px;
+    margin: 10% auto;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    letter-spacing: 10px;
+}
+
+#top-row{
+    padding: 25px;
 }
 
 #main-div {
@@ -23,25 +42,36 @@ body {
     /* background-repeat: no-repeat; */
     background-attachment: fixed cover;
     background-position: center;
-    width: 50%;
-    height: 300px;
+    width: 80%;
+    height: 70%;
+    min-height: 300px;
     border-radius: 25px;
     padding: 20px;
     display: block;
     box-shadow: 0px 0px 10px rgb(133, 133, 133);
+    margin: 0 auto;
+}
+
+#top-container {
+    margin-top: 20px;
 }
 
 #questionText {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 18px;
     text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.308);
+    box-shadow: 0px 0px 10px black;
     letter-spacing: 8px;
     line-height: 40px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    padding: 10px;
+    border: 1px solid rgb(104, 104, 104);
 }
 
 .buttons {
     width: 70%;
-    height: 15%;
+    height: 75%;
     margin: 0 auto 10px auto;
     border: 1px solid black;
     border-radius: 10px;
@@ -49,14 +79,15 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
-    padding-top: -50px;
+    
+    outline: none;
 }
 
 .buttons:hover {
     border: 2px solid rgba(0, 0, 0, 0.336);
     background-color: rgba(216, 216, 216, 0.301);
     font-weight: bold;
-    letter-spacing: 8px;
+    letter-spacing: 2px;
     transition: .4s;
     background-image: url("https://media3.giphy.com/media/xUOwGcu6wd0cXBj5n2/giphy.gif");
     background-position: center;
@@ -64,14 +95,14 @@ body {
 }
 
 #buttonContainer {
-    
-    height: 70%;
+    margin-top: 4%;
+    height: 30%;
 }
 
 #startButton {
    
-    width: 40%;
-    height: 40%;
+    width: 80%;
+    height: 100%;
     border: 1px solid black;
     border-radius: 25px;
     font-size: 2rem;
@@ -80,6 +111,8 @@ body {
     justify-content: center;
     margin: 4% auto 0 auto;
     outline: none;
+    position: relative;
+    top: 138%;
 }
 
 #startButton:hover {
@@ -88,10 +121,11 @@ body {
     transition: 1.5s;
     color: white;
     text-shadow: 0px 0px 5px black;
-    width: 55%;
-    background-image: url("https://media3.giphy.com/media/xUOwGcu6wd0cXBj5n2/giphy.gif");
+    width: 100%;
+    height: 100%;
+    background-image: url("https://i.imgur.com/BzMIeML.gif?noredirect");
     background-position: center;
-    opacity: .3;
+   
     
 }
 
@@ -99,7 +133,44 @@ body {
     display: none !important;
 }
 
-#score {
-    font-size: 25px;
+@media screen and (max-width: 768px){
+    #score {
+        margin: 0;
+    }
+
+    #timer {
+        margin: 0;
+    }
+
+    #main-div {
+        height: 70%;
+    }
+
+    .buttons {
+        height: 45px;
+    }
+
+    #questionText {
+        line-height: 28px;
+    }
+
+
+}
+
+footer {
+    width: 100%;
+    height: 45px;
+    position: fixed;
+    bottom: 0px;
+    background-color: rgba(58, 58, 58, 0.39);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.829);
+    text-shadow: 0px 0px 10px black;
+    font-size: 14px;
+    letter-spacing: 4px;
+    border-top: 1.5px solid white;
+    background-image: url("https://i.imgur.com/BzMIeML.gif?noredirect");
+    background-position: center;
+    background-repeat: repeat-x;
 }
 

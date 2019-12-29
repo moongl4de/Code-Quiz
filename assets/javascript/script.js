@@ -8,11 +8,24 @@ var button4 = document.getElementById('button4')
 var printScore = document.getElementById('score')
 var scoreForm = document.getElementById('scoreForm')
 var scoreList = document.getElementsByTagName('ul')
-var timer = document.getElementById("timeLeft")
+var timer = document.getElementById("timer")
 
 var questionNumber = 0;
 var score = 0;
-
+var countdown = 60;
+function setTime() {
+  var timerInterval = setInterval(
+    function() {
+      countdown--;
+      timer.innerText = countdown + " seconds left.";
+      
+      if (countdown === 0) {
+        clearInterval(timerInterval)
+        timeEl.textContent = ""
+        startReading();
+      }
+    }, 1000);
+}
 
 
 var questions = [
@@ -27,48 +40,36 @@ var questions = [
       answer: "parentheses"
     },
     {
-      title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
+      title: "Which of the following is the correct syntax to display an alert box using JavaScript?",
+      choices: ["alertbox()", "msg()", "msgbox()", "alert()"],
+      answer: "alert()"
     },
     {
-      title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
+      title: "JavaScript can be used to build: ",
+      choices: ["Sorting Algorithm Animations", "Browser-based Cryptocurrency Miners", "Multiple Choice Quizzes", "All of the above!"],
+      answer: "All of the above!"
     },
     {
-      title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
+      title: "JavaScript, ________ and ________ are considered the three pillars of web development: ",
+      choices: ["HTML/BASIC", "TypeScript/Ruby", "Python/C++", "HTML/CSS"],
+      answer: "HTML/CSS"
     },
-    ///etc.
+    
   ];
-
-
 
 $("#startButton").on('click', function(){
 
       startButton.setAttribute("style", "display: none")
       buttonContainer.classList.remove('hide')
+      questionText.classList.remove('hide')
       loadQuestion();
-      timer();
+      setTime();
+      
   })
 
-function timer(){
-    var seconds = 60;
-    var timerFunc = setInterval(function(){
-        timer.innerText='Seconds Left: ' + seconds;
-        seconds--;
-        if (seconds < 0) {
-            clearInterval(timerFunc);
-        }
-    }, 1000);
-    console.log(seconds)
-}
-
-
+  //*** TOOK + 1 OUT OF QUESTIONS.LENGTH */
 function loadQuestion(){
-  if(questionNumber < questions.length + 1){
+  if(questionNumber < questions.length){
   questionText.innerText = questions[questionNumber].title;
   button1.innerText = questions[questionNumber].choices[0];
   button2.innerText = questions[questionNumber].choices[1];
@@ -84,8 +85,8 @@ function loadQuestion(){
       printScore.innerText = "Score: " + score
     } else {
       console.log("Incorrect!")
+      countdown -= 10
       printScore.innerText = "Score: " + score
-      
   } loadNextQuestion();
   })
 //SECOND OPTION CLICK EVENT
@@ -96,8 +97,8 @@ function loadQuestion(){
       console.log("Correct!")
     } else {
       console.log("Incorrect!")
+      countdown -= 10
       printScore.innerText = "Score: " + score
-      
   } loadNextQuestion();
   })
 //THIRD OPTION CLICK EVENT
@@ -108,8 +109,8 @@ function loadQuestion(){
       console.log("Correct!")
     } else {
       console.log("Incorrect!")
+      countdown -= 10
       printScore.innerText = "Score: " + score
-      
   } loadNextQuestion();
   })
 //FOURTH OPTION CLICK EVENT
@@ -120,8 +121,8 @@ function loadQuestion(){
       printScore.innerText = "Score: " + score
     } else {
       console.log("Incorrect!")
+      countdown -= 10
       printScore.innerText = "Score: " + score
-      
   } loadNextQuestion();
   })
 } else {
@@ -131,7 +132,7 @@ function loadQuestion(){
 function loadNextQuestion(){
 questionNumber++;
 console.log(questionNumber)
-if(questionNumber < 5){
+if(questionNumber < questions.length){
 printScore.innerText = "Score: " + score
 questionText.innerText = questions[questionNumber].title;
 button1.innerText = questions[questionNumber].choices[0];
@@ -145,7 +146,7 @@ button4.innerText = questions[questionNumber].choices[3];
   gameOver();
 }
 }
-
+//Game Over function. This loads the high score form for the user to input their initials and save their score in cli
 function gameOver(){
   questionText.classList.remove('hide')
   questionText.innerText = "HIGH SCORES"

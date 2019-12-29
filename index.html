@@ -11,36 +11,50 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="top-container">
             <div class="row">
-                <p id="timer"></p>
+                <div class="col-xs-12 col-md-6">
+                    <p id="score"></p>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <p id="timer"></p>
+                </div>
             </div>
         </div>
-        
 
-        <div class="container-fluid" id="main-div">
-            <p id="questionText">Code Quiz</p>
-                <button id="startButton">begin quiz</button>
-                <form id="scoreForm" class="hide">
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Enter Initials</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
-                  </div>
-                  <ul>
-                      <li></li>
-                  </ul>
-                </form>
-                <div class="hide" id="buttonContainer">
-                    <button class="buttons" id="button1">Answer 1</button>
-                    <button class="buttons" id="button2">Answer 2</button>
-                    <button class="buttons" id="button3">Answer 3</button>
-                    <button class="buttons" id="button4">Answer 4</button>
+        <div class="container" id="main-div">
+            <div class="row">
+                <div class="col-12">
+                    <p id="questionText" class="hide"></p>
+                    <button id="startButton">begin quiz</button>
+                    <form id="scoreForm" class="hide">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Enter Initials</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                      </div>
+                      <ul>
+                          <li></li>
+                      </ul>
+                    </form>
+    
+                    <div class="hide" id="buttonContainer">
+                        <button class="buttons" id="button1">Answer 1</button>
+                        <button class="buttons" id="button2">Answer 2</button>
+                        <button class="buttons" id="button3">Answer 3</button>
+                        <button class="buttons" id="button4">Answer 4</button>
+                    </div>
+
                 </div>
-            <br>
+            </div>
+
+
         </div>
 
-        <p id="score"></p>
-       
+        
+        <footer>
+        
+            - Alex Gignilliat -<br>&copy; 2019
+        </footer>
         
     <script src="assets/javascript/script.js" async defer></script>
     </body>
