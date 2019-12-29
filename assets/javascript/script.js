@@ -27,7 +27,7 @@ function setTime() {
     }, 1000);
 }
 
-
+//These are the questions that my code will pull from. After everything is working the way I want, I will use Math.random to randomize the questions. Also, I plan to add many more questions so that the quiz becomes more about answering as many questions correctly as possible within the time limit.
 var questions = [
     {
       title: "Commonly used data types DO NOT include:",
@@ -57,17 +57,18 @@ var questions = [
     
   ];
 
+//This is my start button click event. I've got it doing a few things here: hiding the button itself, revealing the button container and questionText, and calling the loadQuestion() and setTime() functions. loadQuestion() is going to get everything going and setTime() starts the timer.
+
 $("#startButton").on('click', function(){
 
       startButton.setAttribute("style", "display: none")
       buttonContainer.classList.remove('hide')
       questionText.classList.remove('hide')
       loadQuestion();
-      setTime();
-      
+      setTime();  
   })
 
-  //*** TOOK + 1 OUT OF QUESTIONS.LENGTH */
+//This function checks to see if questionNumber is less than the amount of questions to be asked. If so, the questionNumber's respective question title and question choices are appended.
 function loadQuestion(){
   if(questionNumber < questions.length){
   questionText.innerText = questions[questionNumber].title;
@@ -75,6 +76,8 @@ function loadQuestion(){
   button2.innerText = questions[questionNumber].choices[1];
   button3.innerText = questions[questionNumber].choices[2];
   button4.innerText = questions[questionNumber].choices[3];
+
+//There are most certainly better ways of doing this. That being said, I tried several different things like using a for loop, a while loop, etc and I couldn't get it to work properly. For the time being, I've given each button it's own click event. It checks to see if the text inside the button matches the answer in my questions object.
 
 //FIRST OPTION CLICK EVENT
   $("#button1").on('click', function(){
@@ -146,16 +149,14 @@ button4.innerText = questions[questionNumber].choices[3];
   gameOver();
 }
 }
-//Game Over function. This loads the high score form for the user to input their initials and save their score in cli
+//Game Over function. This loads the high score form for the user to input their initials and save their score to client side storage.
 function gameOver(){
   questionText.classList.remove('hide')
   questionText.innerText = "HIGH SCORES"
   scoreForm.removeAttribute("class", "hide")
   scoreForm.addEventListener('submit', function(event){
     event.preventDefault()
-    
   })
-
 }
 
 
