@@ -7,8 +7,17 @@ var button3 = document.getElementById('button3')
 var button4 = document.getElementById('button4')
 var printScore = document.getElementById('score')
 var scoreForm = document.getElementById('scoreForm')
-var scoreList = document.getElementsByTagName('ul')
+
+var highScoreList = document.getElementById("high-score");
+
+var scoreInput = document.getElementById('formGroupExampleInput')
 var timer = document.getElementById("timer")
+
+
+// var storedScores = [username, score]
+
+var scoreArr = []
+
 
 var questionNumber = 0;
 var score = 0;
@@ -21,8 +30,7 @@ function setTime() {
       
       if (countdown === 0) {
         clearInterval(timerInterval)
-        timeEl.textContent = ""
-        startReading();
+        timer.textContent = ""
       }
     }, 1000);
 }
@@ -57,6 +65,10 @@ var questions = [
     
   ];
 
+
+//Check for stored data
+initialize();
+
 //This is my start button click event. I've got it doing a few things here: hiding the button itself, revealing the button container and questionText, and calling the loadQuestion() and setTime() functions. loadQuestion() is going to get everything going and setTime() starts the timer.
 
 $("#startButton").on('click', function(){
@@ -67,6 +79,8 @@ $("#startButton").on('click', function(){
       loadQuestion();
       setTime();  
   })
+
+  
 
 //This function checks to see if questionNumber is less than the amount of questions to be asked. If so, the questionNumber's respective question title and question choices are appended.
 function loadQuestion(){
@@ -156,8 +170,86 @@ function gameOver(){
   scoreForm.removeAttribute("class", "hide")
   scoreForm.addEventListener('submit', function(event){
     event.preventDefault()
+    renderScore()
+    
   })
 }
+
+function renderScore(){
+  
+  highScoreList.innerText = ""
+  var highScoreName = scoreInput.value.trim()
+  var highScoreData = (highScoreName + " : " + score)
+  if(score > 0){
+  scoreArr.push(highScoreData)
+  }
+  console.log(scoreArr)
+
+  for(i = 0; i < scoreArr.length; i++){
+    var scoreTest = scoreArr[i]
+
+    var li = document.createElement("li")
+    li.textContent = scoreTest
+    highScoreList.append(li)
+  }
+
+  var dataStorage = JSON.stringify(highScoreData)
+  localStorage.setItem("userData", dataStorage)
+  console.log(dataStorage)
+  
+}
+
+function initialize(){
+  var storedString = localStorage.getItem("userData")
+  var parseString = JSON.parse(storedString)
+
+  if (parseString !== null){
+    console.log(parseString)
+    scoreArr.push(parseString)
+    
+  }
+  renderScore()
+  
+}
+
+
+
+//   var usernameString = localStorage.getItem("username");
+//   var scoreString = localStorage.getItem("userScore");
+//   var storedUsernameString = JSON.parse(usernameString);
+//   var storedScoreString = JSON.parse(scoreString);
+//   var storedData = storedUsernameString + storedScoreString
+
+//   // If todos were retrieved from localStorage, update the todos array to it
+//   if (storedData !== null) {
+//     console.log(storedData);
+//   }
+
+//   // Render todos to the DOM
+//   renderTodos();
+// }
+
+
+// function renderTodos() {
+//   // Clear todoList element and update todoCountSpan
+//   highScoreList.innerHTML = "";
+//   // todoCountSpan.textContent = todos.length;
+
+//   // Render a new li for each todo
+//   for (var i = 0; i < scoreArr.length; i++) {
+//     var scoreList = scoreArr[i];
+
+//     var li = document.createElement("li");
+//     li.textContent = scoreList;
+//     li.setAttribute("data-index", i);
+
+//     // var button = document.createElement("button");
+//     // button.textContent = "Complete";
+
+//     // li.appendChild(button);
+//     // todoList.appendChild(li);
+//   }
+// }
 
 
 
