@@ -7,6 +7,7 @@ var button3 = document.getElementById('button3')
 var button4 = document.getElementById('button4')
 var printScore = document.getElementById('score')
 var scoreForm = document.getElementById('scoreForm')
+var restart = document.getElementById('restartButton')
 
 var highScoreList = document.getElementById("high-score");
 
@@ -16,7 +17,7 @@ var timer = document.getElementById("timer")
 
 // var storedScores = [username, score]
 
-var scoreArr = []
+var scoreArr = ["Stephen Hawking : 199", "Carl Sagan : 184"]
 
 
 var questionNumber = 0;
@@ -27,10 +28,11 @@ function setTime() {
     function() {
       countdown--;
       timer.innerText = countdown + " seconds left.";
-      
       if (countdown === 0) {
         clearInterval(timerInterval)
         timer.textContent = ""
+        gameOver();
+        alert("Time has run out!")
       }
     }, 1000);
 }
@@ -78,9 +80,8 @@ $("#startButton").on('click', function(){
       questionText.classList.remove('hide')
       loadQuestion();
       setTime();  
+      printScore.innerText = "Score: "
   })
-
-  
 
 //This function checks to see if questionNumber is less than the amount of questions to be asked. If so, the questionNumber's respective question title and question choices are appended.
 function loadQuestion(){
@@ -165,6 +166,7 @@ button4.innerText = questions[questionNumber].choices[3];
 }
 //Game Over function. This loads the high score form for the user to input their initials and save their score to client side storage.
 function gameOver(){
+  buttonContainer.classList.add('hide')
   questionText.classList.remove('hide')
   questionText.innerText = "HIGH SCORES"
   scoreForm.removeAttribute("class", "hide")
@@ -172,6 +174,10 @@ function gameOver(){
     event.preventDefault()
     renderScore()
     
+    restart.classList.remove('hide')
+    restart.addEventListener('click', function(){
+      location.reload();
+    })
   })
 }
 
@@ -184,7 +190,7 @@ function renderScore(){
   scoreArr.push(highScoreData)
   }
   console.log(scoreArr)
-
+  
   for(i = 0; i < scoreArr.length; i++){
     var scoreTest = scoreArr[i]
 
