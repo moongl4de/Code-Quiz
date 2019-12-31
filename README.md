@@ -4,11 +4,10 @@
 
 This is a quiz application created using JavaScript. This was a huge learning experience, and while there are still a few things I'm working out, it's generally how I envisioned it. I went into this knowing very little about things like local storage and setting intervals, and although I most definitely have a lot more to learn, I believe I now have a solid foundation to build upon.
 
-![alt text](assets/images/screenshotPWGEN.png "Password Generator - Screenshot")
 
 ## Installation
 
-Clone to your local machine and open in your favorite code editor to check it out! Or visit the deployed version at: [Password Generator on GitHub Pages](https://alexgignilliat.github.io/Password-Generator/)
+Clone to your local machine and open in your favorite code editor to check it out! Or visit the deployed version at: [Code Quiz on GitHub Pages]()
 
 ## Technologies Utilized
 
@@ -53,6 +52,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 - - - - -
-"If you don't believe me or don't get it, I don't have time to try to convince you, sorry." - Satoshi Nakamoto
 
 “Remember to look up at the stars and not down at your feet. Try to make sense of what you see and wonder about what makes the Universe exist. Be curious. And however difficult life may seem, there is always something you can do and succeed at. It matters that you don't just give up."  - Stephen Hawking

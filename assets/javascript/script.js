@@ -220,42 +220,4 @@ function initialize(){
 
 
 
-//   var usernameString = localStorage.getItem("username");
-//   var scoreString = localStorage.getItem("userScore");
-//   var storedUsernameString = JSON.parse(usernameString);
-//   var storedScoreString = JSON.parse(scoreString);
-//   var storedData = storedUsernameString + storedScoreString
-
-//   // If todos were retrieved from localStorage, update the todos array to it
-//   if (storedData !== null) {
-//     console.log(storedData);
-//   }
-
-//   // Render todos to the DOM
-//   renderTodos();
-// }
-
-
-// function renderTodos() {
-//   // Clear todoList element and update todoCountSpan
-//   highScoreList.innerHTML = "";
-//   // todoCountSpan.textContent = todos.length;
-
-//   // Render a new li for each todo
-//   for (var i = 0; i < scoreArr.length; i++) {
-//     var scoreList = scoreArr[i];
-
-//     var li = document.createElement("li");
-//     li.textContent = scoreList;
-//     li.setAttribute("data-index", i);
-
-//     // var button = document.createElement("button");
-//     // button.textContent = "Complete";
-
-//     // li.appendChild(button);
-//     // todoList.appendChild(li);
-//   }
-// }
-
-
 

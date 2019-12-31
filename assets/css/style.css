@@ -79,7 +79,6 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
-    
     outline: none;
 }
 
@@ -91,6 +90,7 @@ body {
     transition: .4s;
     background-image: url("https://media3.giphy.com/media/xUOwGcu6wd0cXBj5n2/giphy.gif");
     background-position: center;
+    outline: none;
     
 }
 
