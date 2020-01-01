@@ -15,11 +15,13 @@ var scoreInput = document.getElementById('formGroupExampleInput')
 var timer = document.getElementById("timer")
 
 
+
+
 // var storedScores = [username, score]
 
 var scoreArr = ["Stephen Hawking : 199", "Carl Sagan : 184"]
 
-
+var gameOverSwitch = 0;
 var questionNumber = 0;
 var score = 0;
 var countdown = 60;
@@ -33,6 +35,10 @@ function setTime() {
         timer.textContent = ""
         gameOver();
         alert("Time has run out!")
+      }
+      if (gameOverSwitch === 1){
+        clearInterval(timerInterval)
+        timer.textContent = ""
       }
     }, 1000);
 }
@@ -74,17 +80,17 @@ initialize();
 //This is my start button click event. I've got it doing a few things here: hiding the button itself, revealing the button container and questionText, and calling the loadQuestion() and setTime() functions. loadQuestion() is going to get everything going and setTime() starts the timer.
 
 $("#startButton").on('click', function(){
-
       startButton.setAttribute("style", "display: none")
       buttonContainer.classList.remove('hide')
       questionText.classList.remove('hide')
       loadQuestion();
       setTime();  
-      printScore.innerText = "Score: "
+      printScore.innerText = "Score: " + score
   })
 
 //This function checks to see if questionNumber is less than the amount of questions to be asked. If so, the questionNumber's respective question title and question choices are appended.
 function loadQuestion(){
+  gameOverSwitch = 0;
   if(questionNumber < questions.length){
   questionText.innerText = questions[questionNumber].title;
   button1.innerText = questions[questionNumber].choices[0];
@@ -166,6 +172,8 @@ button4.innerText = questions[questionNumber].choices[3];
 }
 //Game Over function. This loads the high score form for the user to input their initials and save their score to client side storage.
 function gameOver(){
+  timer.textContent = ""
+  gameOverSwitch++;
   buttonContainer.classList.add('hide')
   questionText.classList.remove('hide')
   questionText.innerText = "HIGH SCORES"
@@ -173,7 +181,6 @@ function gameOver(){
   scoreForm.addEventListener('submit', function(event){
     event.preventDefault()
     renderScore()
-    
     restart.classList.remove('hide')
     restart.addEventListener('click', function(){
       location.reload();
@@ -182,7 +189,6 @@ function gameOver(){
 }
 
 function renderScore(){
-  
   highScoreList.innerText = ""
   var highScoreName = scoreInput.value.trim()
   var highScoreData = (highScoreName + " : " + score)

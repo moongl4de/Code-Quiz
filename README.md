@@ -7,7 +7,7 @@ This is a quiz application created using JavaScript. This was a huge learning ex
 
 ## Installation
 
-Clone to your local machine and open in your favorite code editor to check it out! Or visit the deployed version at: [Code Quiz on GitHub Pages]()
+Clone to your local machine and open in your favorite code editor to check it out! Or visit the deployed version at: [Code Quiz on GitHub Pages](https://alexgignilliat.github.io/Code-Quiz/)
 
 ## Technologies Utilized
 
