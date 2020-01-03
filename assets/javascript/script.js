@@ -8,6 +8,8 @@ var button4 = document.getElementById('button4')
 var printScore = document.getElementById('score')
 var scoreForm = document.getElementById('scoreForm')
 var restart = document.getElementById('restartButton')
+var backToGithub = document.getElementById('backToGithub')
+
 
 var highScoreList = document.getElementById("high-score");
 
@@ -70,7 +72,6 @@ var questions = [
       choices: ["HTML/BASIC", "TypeScript/Ruby", "Python/C++", "HTML/CSS"],
       answer: "HTML/CSS"
     },
-    
   ];
 
 
@@ -86,8 +87,7 @@ $("#startButton").on('click', function(){
       loadQuestion();
       setTime();  
       printScore.innerText = "Score: " + score
-  })
-
+  });
 //This function checks to see if questionNumber is less than the amount of questions to be asked. If so, the questionNumber's respective question title and question choices are appended.
 function loadQuestion(){
   gameOverSwitch = 0;
@@ -112,7 +112,7 @@ function loadQuestion(){
       countdown -= 10
       printScore.innerText = "Score: " + score
   } loadNextQuestion();
-  })
+  });
 //SECOND OPTION CLICK EVENT
   $("#button2").on('click', function(){
     if(button2.innerText === questions[questionNumber].answer){
@@ -124,7 +124,7 @@ function loadQuestion(){
       countdown -= 10
       printScore.innerText = "Score: " + score
   } loadNextQuestion();
-  })
+  });
 //THIRD OPTION CLICK EVENT
   $("#button3").on('click', function(){
     if(button3.innerText === questions[questionNumber].answer){
@@ -136,7 +136,7 @@ function loadQuestion(){
       countdown -= 10
       printScore.innerText = "Score: " + score
   } loadNextQuestion();
-  })
+  });
 //FOURTH OPTION CLICK EVENT
   $("#button4").on('click', function(){
     if(button4.innerText === questions[questionNumber].answer){
@@ -148,7 +148,7 @@ function loadQuestion(){
       countdown -= 10
       printScore.innerText = "Score: " + score
   } loadNextQuestion();
-  })
+  });
 } else {
 }
 }
@@ -175,6 +175,7 @@ function gameOver(){
   timer.textContent = ""
   gameOverSwitch++;
   buttonContainer.classList.add('hide')
+  backToGithub.classList.remove('hide')
   questionText.classList.remove('hide')
   questionText.innerText = "HIGH SCORES"
   scoreForm.removeAttribute("class", "hide")
@@ -184,8 +185,8 @@ function gameOver(){
     restart.classList.remove('hide')
     restart.addEventListener('click', function(){
       location.reload();
-    })
-  })
+    });
+  });
 }
 
 function renderScore(){
@@ -195,35 +196,30 @@ function renderScore(){
   if(score > 0){
   scoreArr.push(highScoreData)
   }
-  console.log(scoreArr)
+  // console.log(scoreArr)
   
   for(i = 0; i < scoreArr.length; i++){
     var scoreTest = scoreArr[i]
-
     var li = document.createElement("li")
     li.textContent = scoreTest
     highScoreList.append(li)
   }
 
-  var dataStorage = JSON.stringify(highScoreData)
+  var dataStorage = JSON.stringify(scoreArr)
   localStorage.setItem("userData", dataStorage)
-  console.log(dataStorage)
-  
+  console.log(dataStorage);
 }
 
 function initialize(){
   var storedString = localStorage.getItem("userData")
   var parseString = JSON.parse(storedString)
-
   if (parseString !== null){
     console.log(parseString)
-    scoreArr.push(parseString)
+    scoreArr = parseString;
     
   }
   renderScore()
   
 }
-
-
 
 
