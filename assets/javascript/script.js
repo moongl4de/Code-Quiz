@@ -181,7 +181,10 @@ function gameOver(){
   scoreForm.removeAttribute("class", "hide")
   scoreForm.addEventListener('submit', function(event){
     event.preventDefault()
+    
+
     renderScore()
+    scoreInput.value="";
     restart.classList.remove('hide')
     restart.addEventListener('click', function(){
       location.reload();
@@ -193,8 +196,14 @@ function renderScore(){
   highScoreList.innerText = ""
   var highScoreName = scoreInput.value.trim()
   var highScoreData = (highScoreName + " : " + score)
+  if(gameOverSwitch > 0){
+
+  
   if(score > 0){
   scoreArr.push(highScoreData)
+  } else {
+    alert("Score must be higher than 0 to record high score.")
+  }
   }
   // console.log(scoreArr)
   
